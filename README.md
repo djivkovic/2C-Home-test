@@ -1,6 +1,5 @@
 # Razvoj GraphQL API-ja za upravljanje korisnicima
 
-# Aplikacija zahteva lokalno prisustvo PostgreSQL baze podataka radi pravilnog funkcionisanja"
 
 # Pokretanje Projekta
 
@@ -20,3 +19,5 @@ Da biste pokrenuli ovaj projekat na vašem računaru, sledite sledeće korake:
     node index
 
 5. Kako aplikacija detaljno funkcionišе možete naći na linku: https://youtu.be/pkFI-r5WP1M
+
+### Aplikacija zahteva lokalno prisustvo PostgreSQL baze podataka radi pravilnog funkcionisanja
