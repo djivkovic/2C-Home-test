@@ -8,15 +8,15 @@ const resolvers = {
     Query:{
         users: async () => {
             try {
-                const users = await getUsers();
-                return users;
+                const users = await getUsers()
+                return users
             } catch (err) {
-                throw err;
+                throw err
             }
         },
         user: async (_, { id }) =>{
             try {
-                const user = await getUserById(id);
+                const user = await getUserById(id)
                 return user                                           
             } catch(err){
                 throw err
@@ -24,19 +24,19 @@ const resolvers = {
         },
         filteredUsers: async (_, { name, email }) => {
             try {
-                let users = await getUsers();
+                let users = await getUsers()
 
                 if (name) {
-                    users = users.filter(user => user.name.includes(name));
+                    users = users.filter(user => user.name.includes(name))
                 }
 
                 if (email) {
-                    users = users.filter(user => user.email.includes(email));
+                    users = users.filter(user => user.email.includes(email))
                 }
 
-                return users;
+                return users
             } catch (err) {
-                throw err;
+                throw err
             }
         }
     },
@@ -52,8 +52,8 @@ const resolvers = {
         },
         deleteUser: async(_, { id })=>{
             try{
-                const deletedUser = await deleteUser(id);
-                return deletedUser;
+                const deletedUser = await deleteUser(id)
+                return deletedUser
             }catch(err){
                 console.log(err)
                 throw err

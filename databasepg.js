@@ -22,7 +22,7 @@ export const getUsers = async () => {
         console.error(err.message)
         throw err
     }
-};
+}
 
 const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -32,7 +32,7 @@ const isValidEmail = (email) => {
 export const addUser = async (user) => {
     const { name, email } = user;
     if (!isValidEmail(email)) {
-        throw new Error('Invalid email format!');
+        throw new Error('Invalid email format!')
     }
 
     try {
@@ -71,13 +71,13 @@ export const deleteUser = async (id) => {
             throw new Error("User for deletion not found.")
         }else{
             console.log("User successfully deleted.")
-            return res.rows[0];
+            return res.rows[0]
         }
     } catch (err) {
-        console.error(err.message);
-        throw err;
+        console.error(err.message)
+        throw err
     }
-};
+}
 
 
 
