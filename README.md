@@ -4,9 +4,9 @@
 
 # Pokretanje Projekta
 
-Da biste pokrenuli ovaj projekat na Vašem računaru, sledite sledeće korake:
+Da biste pokrenuli ovaj projekat na vašem računaru, sledite sledeće korake:
 
-1. Preuzmite projekat sa ovog repozitorijuma ili klonirajte ga na Vaš računar.
+1. Preuzmite projekat sa ovog repozitorijuma ili klonirajte ga na vaš računar.
 
 2. Otvorite terminal i uđite u direktorijum projekta.
 
@@ -19,3 +19,4 @@ Da biste pokrenuli ovaj projekat na Vašem računaru, sledite sledeće korake:
 4. Nakon što se instalacija završi, možete pokrenuti projekat koristeći sledeću komandu:
     node index
 
+5. Kako aplikacija detaljno funkcionišе možete naći na linku: https://youtu.be/pkFI-r5WP1M
