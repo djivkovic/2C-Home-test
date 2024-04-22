@@ -10,14 +10,12 @@ Da biste pokrenuli ovaj projekat na vašem računaru, sledite sledeće korake:
 2. Otvorite terminal i uđite u direktorijum projekta.
 
 3. U terminalu, izvršite sledeće komande kako biste instalirali sve neophodne zavisnosti ukoliko su potrebne:
-    npm install dotenv
-    npm install pg
-    npm install @apollo/server graphql
+    npm install
 
 
 4. Nakon što se instalacija završi, možete pokrenuti projekat koristeći sledeću komandu:
     node index
 
-5. Kako aplikacija detaljno funkcionišе možete naći na linku: https://youtu.be/pkFI-r5WP1M
+5. Kako aplikacija detaljno funkcionišе možete naći na linku: 
 
 ### Aplikacija zahteva lokalno prisustvo PostgreSQL baze podataka radi pravilnog funkcionisanja

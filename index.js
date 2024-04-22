@@ -1,74 +1,31 @@
-import { ApolloServer } from "@apollo/server"
-import { startStandaloneServer } from '@apollo/server/standalone'
-
-import { typeDefs } from "./schema.js"
-import { getUsers, addUser, getUserById, deleteUser } from "./databasepg.js"
+import { ApolloServer } from "@apollo/server";
+import { startStandaloneServer } from '@apollo/server/standalone';
+import { typeDefs } from "./schema.js";
+import { getUsers, addUser, getUserById, deleteUser, filterUsersByName, filterUsersByEmail } from "./databasepg.js";
 
 const resolvers = {
     Query:{
-        users: async () => {
-            try {
-                const users = await getUsers()
-                return users
-            } catch (err) {
-                throw err
-            }
-        },
-        user: async (_, { id }) =>{
-            try {
-                const user = await getUserById(id)
-                return user                                           
-            } catch(err){
-                throw err
-            }
-        },
-        filteredUsers: async (_, { name, email }) => {
-            try {
-                let users = await getUsers()
+        users: async () => await getUsers(),
 
-                if (name) {
-                    users = users.filter(user => user.name.includes(name))
-                }
+        user: async (_, { id }) => await getUserById(id),
 
-                if (email) {
-                    users = users.filter(user => user.email.includes(email))
-                }
+        filteredUsersByName: async (_, { name }) => await filterUsersByName({ name }),
 
-                return users
-            } catch (err) {
-                throw err
-            }
-        }
+        filteredUsersByEmail: async (_, { email }) => await filterUsersByEmail({ email })
     },
     Mutation:{
-        addUser: async(_, { user })=>{
-            try{
-                const newUser = await addUser(user)
-                return newUser
-            }catch(err){
-                console.log(err)
-                throw err
-            }
-        },
-        deleteUser: async(_, { id })=>{
-            try{
-                const deletedUser = await deleteUser(id)
-                return deletedUser
-            }catch(err){
-                console.log(err)
-                throw err
-            }
-        }
+        addUser: async (_, { user }) => await addUser(user),
+        deleteUser: async (_, { id }) => await deleteUser(id)
     }
-}
+};
 
 const server = new ApolloServer({
     typeDefs,
     resolvers
-})
+});
 
-const { url } = await startStandaloneServer(server,{
-    listen: { port:4000 }
-})
+await startStandaloneServer(server, {
+    listen: { port: 4000 }
+});
 
-console.log("Server ready at port: ", 4000)
+console.log("Server ready at port: ", 4000);
