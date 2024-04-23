@@ -16,6 +16,6 @@ Da biste pokrenuli ovaj projekat na vašem računaru, sledite sledeće korake:
 4. Nakon što se instalacija završi, možete pokrenuti projekat koristeći sledeću komandu:
     node index
 
-5. Kako aplikacija detaljno funkcionišе možete naći na linku: https://youtu.be/q13ugo1VC6M
+5. Kako aplikacija detaljno funkcionišе možete naći na linku: https://youtu.be/Jd4PnLKOJpQ 
 
 ### Aplikacija zahteva lokalno prisustvo PostgreSQL baze podataka radi pravilnog funkcionisanja
