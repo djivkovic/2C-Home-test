@@ -10,7 +10,6 @@ export const typeDefs = `#graphql
         user(id:ID!): User
         filteredUsersByName(name: String!): [User]
         filteredUsersByEmail(email: String!): [User]
-
     }     
 
     type Mutation{

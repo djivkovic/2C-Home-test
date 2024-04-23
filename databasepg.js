@@ -92,7 +92,9 @@ export const deleteUser = async (id) => {
 export const filterUsersByEmail = async (email) => {
     try {
         const query = 'SELECT * FROM users WHERE email ILIKE $1';
+
         const res = await client.query(query, [`%${email['email']}%`]);
+
         return res.rows;
     } catch (err) {
         handleError(err);
@@ -102,7 +104,9 @@ export const filterUsersByEmail = async (email) => {
 export const filterUsersByName = async (name) => {
     try {
         const query = 'SELECT * FROM users WHERE name ILIKE $1';
+        
         const res = await client.query(query, [`%${name['name']}%`]);
+
         return res.rows;
     } catch (err) {
         handleError(err);
