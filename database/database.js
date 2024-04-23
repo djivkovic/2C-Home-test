@@ -89,15 +89,15 @@ export const deleteUser = async (id) => {
     }
 };
 
-export const filterUsers = async (filterParams) => {
+export const filterUsers = async (filterParams = {}) => {
     try {
         let query;
         let queryParams;
 
-        if (filterParams.hasOwnProperty('email') && filterParams.email) {
+        if (filterParams.email) {
             query = 'SELECT * FROM users WHERE email ILIKE $1';
             queryParams = [`%${filterParams.email}%`];
-        } else if (filterParams.hasOwnProperty('name') && filterParams.name) {
+        } else if (filterParams.name) {
             query = 'SELECT * FROM users WHERE name ILIKE $1';
             queryParams = [`%${filterParams.name}%`];
         } else {
