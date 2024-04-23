@@ -89,24 +89,24 @@ export const deleteUser = async (id) => {
     }
 };
 
-export const filterUsersByEmail = async (email) => {
+export const filterUsers = async (filterParams) => {
     try {
-        const query = 'SELECT * FROM users WHERE email ILIKE $1';
+        let query;
+        let queryParams;
 
-        const res = await client.query(query, [`%${email['email']}%`]);
-
-        return res.rows;
-    } catch (err) {
-        handleError(err);
-    }
-};
-
-export const filterUsersByName = async (name) => {
-    try {
-        const query = 'SELECT * FROM users WHERE name ILIKE $1';
+        if (filterParams.hasOwnProperty('email') && filterParams.email) {
+            query = 'SELECT * FROM users WHERE email ILIKE $1';
+            queryParams = [`%${filterParams.email}%`];
+        } else if (filterParams.hasOwnProperty('name') && filterParams.name) {
+            query = 'SELECT * FROM users WHERE name ILIKE $1';
+            queryParams = [`%${filterParams.name}%`];
+        } else {
+            query = 'SELECT * FROM users';
+            queryParams = [];
+        }
         
-        const res = await client.query(query, [`%${name['name']}%`]);
-
+        const res = await client.query(query, queryParams);
+        
         return res.rows;
     } catch (err) {
         handleError(err);

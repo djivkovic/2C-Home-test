@@ -8,8 +8,7 @@ export const typeDefs = `#graphql
     type Query{
         users: [User]
         user(id:ID!): User
-        filteredUsersByName(name: String!): [User]
-        filteredUsersByEmail(email: String!): [User]
+        filterUsers(name: String, email: String): [User]
     }     
 
     type Mutation{
